@@ -51,25 +51,28 @@ compartidos.
 
 ### Java — Threads
 
-| Hilos | Tiempo (ms) |
-|-------|-------------|
-| 1     | 71.842      |
-| 4     | 880.230     |
-| 100   | ~3.200.000  |
-| 500   | ~7.800.000  |
-| 1000  | ~9.500.000+ |
+| Hilos | Tiempo (ms) | Rango   | 
+|-------|-------------|---------|
+| 1     | 9350        | 5000000 |
+| 100   | 19423       | 5000000 |
+| 500   | 18974       | 5000000 | 
+| 1000  | 12857       | 5000000 |
+| 2000  | 12291       | 5000000 |
+| 5000  | 13872       | 5000000 |
 
-> Los valores de 100, 500 y 1000 hilos son estimaciones basadas en el patrón de crecimiento observado.
+> Los valores de los hilos los tomamos hasta un rango 5000000 por temas de recursos, pero podemos evidenciar que 
+mayor cantidad de hilos no implica un mejor tiempo de ejecución.
 
 ### Go — Goroutines
 
-| Goroutines | Tiempo (ms) |
-|------------|-------------|
-| 1          | ~18.000     |
-| 100        | ~120.000    |
-| 500        | ~350.000    |
-| 1000       | ~680.000    |
-| 2000       | ~1.200.000  |
+| Goroutines | Tiempo         | Rango   |
+|------------|----------------|---------|
+| 1          | 4m10.9194714s  | 5000000 |
+| 100        | 4m41.7500333s  | 5000000 |
+| 500        | 10m38.1320994s | 5000000 |
+| 1000       | 16m59.3359358s | 5000000 |
+| 2000       | 6m16.3077088s  | 5000000 |
+| 5000       | 5m30.3802046s  | 5000000 |
 
 > Go es generalmente 3–5× más rápido en este escenario por el scheduler M:N y el menor overhead de goroutines vs 
 threads del SO.
